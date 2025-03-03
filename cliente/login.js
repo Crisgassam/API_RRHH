@@ -33,6 +33,7 @@ async function login(event) {
     localStorage.setItem("email", json.email);
     localStorage.setItem("token", json.token);
 
+    window.location = "empleado.html";
     
   } else {
     document.getElementById("divResultado").innerHTML = `

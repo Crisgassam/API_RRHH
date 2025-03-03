@@ -31,10 +31,10 @@ async function createDatabase() {
     `);
 
     const registros = await db.all(`SELECT * FROM USUARIO;`);
-    console.log(registros);
 
     if (registros.length<1) {
         await db.exec(`  
+            INSERT INTO USUARIO (nombre, email, clave) VALUES ("Javier", "j@j.es", "$2a$10$XyAIDDRinlpJH/pklZXtFO.37J1EsZliA0PyJw2yEHcyj76DXBz0W");
             INSERT INTO USUARIO (nombre, email, clave) VALUES ("Paco", "paco@paquito.es", "$2a$10$XyAIDDRinlpJH/pklZXtFO.37J1EsZliA0PyJw2yEHcyj76DXBz0W");
             INSERT INTO USUARIO (nombre, email, clave, tlf) VALUES ("María", "maria@mariquilla.es", "$2a$10$XyAIDDRinlpJH/pklZXtFO.37J1EsZliA0PyJw2yEHcyj76DXBz0W", "789456123");
             INSERT INTO USUARIO (nombre, email, clave, dni) VALUES ("José", "jose@joselito.es", "$2a$10$XyAIDDRinlpJH/pklZXtFO.37J1EsZliA0PyJw2yEHcyj76DXBz0W", "12345678Z");
