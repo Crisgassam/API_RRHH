@@ -28,7 +28,7 @@ class UsuarioModel {
 
   async getUsuarioByEmail(email) {
     const db = await dbPromise;
-    return db.get('SELECT * FROM USUARIO WHERE email = ?', email);
+    return db.get('SELECT * FROM USUARIO WHERE email= ? ', email);
   }
 }
 

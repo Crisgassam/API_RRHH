@@ -8,11 +8,11 @@ class LoginController{
   
   async postLogin(req, res) {    
     const {email, clave} = req.body;
-    const usuario = await usuarioModel.getUsuarioByEmail( email );
-    //console.log(usuario);
+    const usuario = await usuarioModel.getUsuarioByEmail(email);
+    //console.log(usuario.nombre);
 
     let loginCorrecto = false;
-    if( usuario && await bcrypt.compare(clave, usuario.clave) )
+    if( usuario.nombre && await bcrypt.compare(clave, usuario.clave) )
       loginCorrecto = true;
 
     if (!loginCorrecto) {

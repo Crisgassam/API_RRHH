@@ -35,10 +35,10 @@ async function createDatabase() {
 
     if (registros.length<1) {
         await db.exec(`  
-            INSERT INTO USUARIO (nombre, email, clave) VALUES ("Paco", "paco@paquito.es", "1234");
-            INSERT INTO USUARIO (nombre, email, clave, tlf) VALUES ("María", "maria@mariquilla.es", "1234", "789456123");
-            INSERT INTO USUARIO (nombre, email, clave, dni) VALUES ("José", "jose@joselito.es", "1234", "12345678Z");
-            INSERT INTO USUARIO (nombre, email, clave) VALUES ("Eva", "eva@asdfghjk.es", "1234");
+            INSERT INTO USUARIO (nombre, email, clave) VALUES ("Paco", "paco@paquito.es", "$2a$10$XyAIDDRinlpJH/pklZXtFO.37J1EsZliA0PyJw2yEHcyj76DXBz0W");
+            INSERT INTO USUARIO (nombre, email, clave, tlf) VALUES ("María", "maria@mariquilla.es", "$2a$10$XyAIDDRinlpJH/pklZXtFO.37J1EsZliA0PyJw2yEHcyj76DXBz0W", "789456123");
+            INSERT INTO USUARIO (nombre, email, clave, dni) VALUES ("José", "jose@joselito.es", "$2a$10$XyAIDDRinlpJH/pklZXtFO.37J1EsZliA0PyJw2yEHcyj76DXBz0W", "12345678Z");
+            INSERT INTO USUARIO (nombre, email, clave) VALUES ("Eva", "eva@asdfghjk.es", "$2a$10$XyAIDDRinlpJH/pklZXtFO.37J1EsZliA0PyJw2yEHcyj76DXBz0W");
         `);
     }
 
