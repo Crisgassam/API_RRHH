@@ -6,7 +6,7 @@ import verifyToken from '../middleware/authMiddleware.js';
 import usuarioController from '../controllers/UsuarioController.js';
 
 router.route('/')
-  .get( usuarioController.getUsuarios )
+  .get( verifyToken, usuarioController.getUsuarios )
   .post( verifyToken, usuarioController.postUsuario )
 ;
 
