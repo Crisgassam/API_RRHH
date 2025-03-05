@@ -60,9 +60,8 @@ class UsuarioController {
   async putUsuario(req, res) {
     let { nombre, email, clave, tlf, dni } = req.body;
 
-    if (!nombre || !email || !clave)
-      return res.status(400).json({ error: "Los campos nombre, email y clave son obligatorios" });
-
+    if (!nombre || !email)
+      return res.status(400).json({ error: "Los campos nombre, email son obligatorios" });
 
     if (!tlf)
       tlf = null;
