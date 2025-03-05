@@ -59,13 +59,23 @@ class UsuarioController {
 
   //Hay que modificar este método porque solo se pueden modificar las notas que son mias 
   async putUsuario(req, res) {
-    if (req.usuario.id != req.params.id) {
-      res.status(400).json({ error: "No tienes permiso para actualizar el usuario." });
-      return;
-    }
+    let { nombre, email, clave, tlf, dni } = req.body;
+
+    if (!nombre || !email || !clave)
+      return res.status(400).json({ error: "Los campos nombre, email y clave son obligatorios" });
+
+
+    if (!tlf)
+      tlf = null;
+
+    if (!dni)
+      dni = null;
+
+    const saltRounds = 10;
+    const claveHash = await bcrypt.hash(clave, saltRounds);
 
     try {
-      const result = await usuarioModel.updateUsuario(req.params.id, req.body.nombre, req.body.email, req.body.clave, req.body.tlf, req.body.dni);
+      const result = await usuarioModel.updateUsuario(req.params.id, nombre, email, claveHash, tlf, dni);
       if (result.changes > 0) {
         res.json({ message: 'Usuario actualizado' });
       } else {
