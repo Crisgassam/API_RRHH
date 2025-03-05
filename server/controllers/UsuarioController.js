@@ -6,7 +6,6 @@ class UsuarioController {
   constructor() { }
 
   async getUsuario(req, res) {
-    console.log(req.params);
     try {
         //El await es porque no se lo que va a tardar la BD en responderme
       const datos = await usuarioModel.getUsuarioByEmail(req.params.email);

@@ -81,9 +81,7 @@ async function main() {
     await datosUsuarios();
 
     document.querySelector("#btnLogout").addEventListener("click", e => {
-        console.log(localStorage.token);
         localStorage.clear();
-        console.log(localStorage.token);
         window.location = "login.html";
     });
 }
