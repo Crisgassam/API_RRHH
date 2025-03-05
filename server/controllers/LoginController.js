@@ -17,7 +17,7 @@ class LoginController{
 
     if (!loginCorrecto) {
       console.log("Login incorrecto");
-      return res.status(401).json({error: "E-mail o password incorrecto"});
+      return res.status(401).json({error: "E-mail o contraseña incorrectos."});
     }
 
     const usuarioForToken = {
