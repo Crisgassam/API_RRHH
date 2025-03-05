@@ -16,7 +16,7 @@ class LoginController{
       loginCorrecto = true;
 
     if (!loginCorrecto) {
-      console.log("Login incorrecto");
+  
       return res.status(401).json({error: "E-mail o contraseña incorrectos."});
     }
 

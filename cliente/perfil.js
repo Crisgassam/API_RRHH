@@ -16,7 +16,6 @@ async function datosUsuario() {
         }
       });
     const json = await respuesta.json();
-    console.log(json);
 
       id = json.id;
 
@@ -30,15 +29,15 @@ async function datosUsuario() {
         let form = `
             <div>
                 <label for="nombre" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre: <span class="text-red-500">*</span></label>
-                <input value="${nombre}" type="text" name="nombre" id="nombre" class="bg-gray-50 border border-red-500 text-gray-900 rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500" placeholder="Nombre" required>
+                <input value="${nombre}" type="text" name="nombre" id="nombre" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nombre" required>
             </div>
             <div>
                 <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Correo electrónico: <span class="text-red-500">*</span></label>
-                <input value="${email}" type="email" name="email" id="email" class="bg-gray-50 border border-red-500 text-gray-900 rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500" placeholder="nombre@empresa.com" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$" required>
+                <input value="${email}" type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="nombre@empresa.com" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$" required>
             </div>
             <div>
                 <label for="clave" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contraseña:</label>
-                <input type="password" name="clave" id="clave" placeholder="••••••••" class="bg-gray-50 border border-red-500 text-gray-900 rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500">
+                <input type="password" name="clave" id="clave" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
             </div>
             <div>
                 <label for="tlf" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Teléfono:</label>
