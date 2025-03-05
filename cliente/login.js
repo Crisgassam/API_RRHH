@@ -23,12 +23,6 @@ async function login(event) {
   const json = await respuesta.json();
 
   if (respuesta.ok) {
-    /*document.getElementById("divResultado").innerHTML = `
-      <p>Login realizado correctamente.</p>
-      <p>Nombre: ${json.nombre}</p>
-      <p>E-mail: ${json.email}</p>
-      <p>Token: ${json.token}</p>
-    `;*/
     localStorage.setItem("nombre", json.nombre);
     localStorage.setItem("email", json.email);
     localStorage.setItem("token", json.token);

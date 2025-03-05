@@ -11,14 +11,17 @@ class UsuarioModel {
     return db.get('SELECT * FROM USUARIO WHERE id = ?', id);
   }
 
-  async createUsuario(nombre, email, clave) {
+  async createUsuario(nombre, email, clave, tlf, dni) {
     const db = await dbPromise;
-    return db.run('INSERT INTO USUARIO (nombre, email, clave) VALUES (?, ?, ?)', nombre, email, clave);
+    return db.run('INSERT INTO USUARIO (nombre, email, clave, tlf, dni) VALUES (?, ?, ?, ?, ?)', nombre, email, clave, tlf, dni);
   }
 
   async updateUsuario(id, nombre, email, clave, tlf, dni) {
     const db = await dbPromise;
-    return db.run('UPDATE USUARIO SET nombre = ?, email = ?, clave = ?, tlf = ?, dni = ? WHERE id = ?', nombre, email, clave, tlf, dni, id);
+    if (clave) {
+      return db.run('UPDATE USUARIO SET nombre = ?, email = ?, clave = ?, tlf = ?, dni = ? WHERE id = ?', nombre, email, clave, tlf, dni, id);
+    }
+    return db.run('UPDATE USUARIO SET nombre = ?, email = ?, tlf = ?, dni = ? WHERE id = ?', nombre, email, tlf, dni, id);
   }
 
   async deleteUsuario(id) {

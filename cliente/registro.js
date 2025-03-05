@@ -1,26 +1,50 @@
-'use strict';
+"use strict";
 
-const frm = document.querySelector('#frmRegistroUsuario');
-const res = document.querySelector('#divResultado');
+/**
+ * Realiza la operación de registro
+ * @param {Event} event 
+ */
+async function registro(event) {
+    event.preventDefault();
 
-let errores = [];
-if (!frm.tlf.value == '') {
-    if (/^[0-9]{9}$/.test(frm.tlf.value) == false)
-        errores.push('El teléfono debe tener el formato correcto.');
+    const nombre = document.getElementById("nombre").value;
+    const email = document.getElementById("email").value;
+    const clave = document.getElementById("clave").value;
+    const tlf = document.getElementById("tlf").value;
+    const dni = document.getElementById("dni").value;
+
+    const respuesta = await fetch("/api/usuario", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            nombre,
+            email,
+            clave,
+            tlf,
+            dni
+        })
+    });
+    const json = await respuesta.json();
+
+    if (respuesta.ok) {
+       
+        window.location = "login.html";
+
+    } else {
+        document.getElementById("divResultado").innerHTML = `
+      <div class="p-4 mb-4 text-sm text-yellow-800 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300" role="alert">
+        ${json.error}
+      </div>
+    `;
+    }
 }
 
-if (!frm.dni.value == '') {
-    if (/^[0-9]{8}[a-zA-Z]$/.test(frm.dni.value) == false)
-        errores.push('El dni debe tener el formato correcto.');
-}
 
-document.querySelector('btnRegistro').addEventListener('clck', function (e) {
-    e.preventDefault();
-    if (!errores == '') {
-        for (let err of errores) {
-            res.innerText = '<p>' + err + '</p>'
-        }
-    } else
-    res.innerText = 'ok';
-});
+////////////////////
+// MAIN
+///////////////////
+const frmRegistroUsuario = document.getElementById("frmRegistroUsuario");
+frmRegistroUsuario.addEventListener("submit", registro);
 
