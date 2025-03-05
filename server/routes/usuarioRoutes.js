@@ -10,7 +10,7 @@ router.route('/')
   .post( verifyToken, usuarioController.postUsuario )
 ;
 
-router.route('/:id')
+router.route('/:email')
   .get( usuarioController.getUsuario )
   .delete( verifyToken, usuarioController.deleteUsuario )
   .put( verifyToken, usuarioController.putUsuario )

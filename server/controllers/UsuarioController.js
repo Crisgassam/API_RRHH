@@ -9,13 +9,13 @@ class UsuarioController{
     console.log(req.params);
     try {
         //El await es porque no se lo que va a tardar la BD en responderme
-      const nota = await usuarioModel.getUsuarioById(req.params.id);
-      if (nota) {
+      const datos = await usuarioModel.getUsuarioByEmail(req.params.email);
+      if (datos) {
         //Si la nota se encuentra la devuelvo en objeto JSON, nuestra API siempre va a recibir y devolver objetos JSON
-        res.json(nota);
+        res.json(datos);
       } else {
         //Si no ha encontrado la nota es error 404 que es not found, estás intentando acceder a algo que no existe
-        res.status(404).json({ error: 'Nota no encontrada' });
+        res.status(404).json({ error: 'Usuario no encontrada' });
       }
     } catch (err) {
         //El error 500 sirve para error interno del servidor
