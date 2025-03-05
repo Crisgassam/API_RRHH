@@ -7,7 +7,7 @@ import usuarioController from '../controllers/UsuarioController.js';
 
 router.route('/')
   .get( verifyToken, usuarioController.getUsuarios )
-  .post( verifyToken, usuarioController.postUsuario )
+  .post( usuarioController.postUsuario )
 ;
 
 router.route('/:id')

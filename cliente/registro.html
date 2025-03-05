@@ -19,7 +19,7 @@
                 <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                     Registro
                 </h1>
-                <form class="space-y-4 md:space-y-6" action="#" id="frmRegistroUsuario">
+                <form class="space-y-4 md:space-y-6" action="#" id="frmRegistroUsuario" method="POST">
                   <div>
                     <label for="nombre" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre: <span class="text-red-500">*</span></label>
                     <input type="text" name="nombre" id="nombre" class="bg-gray-50 border border-red-500 text-gray-900 rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500" placeholder="Nombre" required>
@@ -45,6 +45,7 @@
                   <p class="text-sm font-light text-gray-500 dark:text-gray-400">
                     Para regresar a la pantalla de inicio <a href="index.html" class="font-medium text-primary-600 hover:underline dark:text-primary-500"> pulsa aquí</a>
                   </p>
+                  <div id="divResultado" class="notice"></div>
                 </form>
             </div>
         </div>
