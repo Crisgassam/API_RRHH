@@ -3,7 +3,7 @@
 let boton =  document.querySelector("#btnCambiante");
 
 if(localStorage.token){
-    document.querySelector("#enlaceCuenta").innerHTML = "<a href='cuenta.html' class='mx-4 text-amber-800 underline cursor-pointer'>Mi cuenta</a>";
+    document.querySelector("#enlaceCuenta").innerHTML = "<a href='perfil.html' class='mx-4 text-amber-800 underline cursor-pointer'>Mi cuenta</a>";
     boton.innerText = "Cerrar sesión";
     boton.addEventListener("click", e=>{
         console.log(localStorage.token);
