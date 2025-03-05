@@ -36,9 +36,15 @@ class UsuarioController {
     const { nombre, email, clave, tlf, dni } = req.body;
 
     // Validar que los campos obligatorios no estén vacíos
-    if (!nombre || !email || !clave) {
+    if (!nombre || !email || !clave)
       return res.status(400).json({ error: "Los campos nombre, email y clave son obligatorios" });
-    }
+
+
+    if (!tlf)
+      tlf = null;
+
+    if (!dni)
+      dni = null;
 
     const saltRounds = 10;
     const claveHash = await bcrypt.hash(clave, saltRounds);
