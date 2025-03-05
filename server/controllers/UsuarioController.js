@@ -33,7 +33,7 @@ class UsuarioController {
   }
 
   async postUsuario(req, res) {
-    const { nombre, email, clave, tlf, dni } = req.body;
+    let { nombre, email, clave, tlf, dni } = req.body;
 
     // Validar que los campos obligatorios no estén vacíos
     if (!nombre || !email || !clave)
